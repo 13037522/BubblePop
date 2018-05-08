@@ -14,6 +14,7 @@
 		4C1CA4FA20917873009BDDEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CA4F820917873009BDDEB /* LaunchScreen.storyboard */; };
 		4C1CA50520917873009BDDEB /* BubblePopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CA50420917873009BDDEB /* BubblePopTests.swift */; };
 		4C1CA51020917873009BDDEB /* BubblePopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CA50F20917873009BDDEB /* BubblePopUITests.swift */; };
+		62026D2320A0801F00A408C3 /* makeBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62026D2220A0801F00A408C3 /* makeBubble.swift */; };
 		6214E3732093820200C4AF7E /* bBlack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6214E36E2093820200C4AF7E /* bBlack.jpeg */; };
 		6214E3742093820200C4AF7E /* bBlue.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6214E36F2093820200C4AF7E /* bBlue.jpeg */; };
 		6214E3752093820200C4AF7E /* bGreen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6214E3702093820200C4AF7E /* bGreen.jpeg */; };
@@ -54,6 +55,7 @@
 		4C1CA50B20917873009BDDEB /* BubblePopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BubblePopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CA50F20917873009BDDEB /* BubblePopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblePopUITests.swift; sourceTree = "<group>"; };
 		4C1CA51120917873009BDDEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62026D2220A0801F00A408C3 /* makeBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeBubble.swift; sourceTree = "<group>"; };
 		6214E36E2093820200C4AF7E /* bBlack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bBlack.jpeg; sourceTree = "<group>"; };
 		6214E36F2093820200C4AF7E /* bBlue.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bBlue.jpeg; sourceTree = "<group>"; };
 		6214E3702093820200C4AF7E /* bGreen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bGreen.jpeg; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				62F0E83E209F16F1009B3AB2 /* ReadWriteFile.swift */,
-				62486517209B5B7300D690FE /* GameViewController.swift */,
 				4C1CA4EE20917873009BDDEB /* BubblePop */,
 				4C1CA50320917873009BDDEB /* BubblePopTests */,
 				4C1CA50E20917873009BDDEB /* BubblePopUITests */,
@@ -113,6 +114,7 @@
 		4C1CA4EE20917873009BDDEB /* BubblePop */ = {
 			isa = PBXGroup;
 			children = (
+				62486517209B5B7300D690FE /* GameViewController.swift */,
 				4C1CA4EF20917873009BDDEB /* AppDelegate.swift */,
 				4C1CA4F120917873009BDDEB /* ViewController.swift */,
 				4C1CA4F320917873009BDDEB /* Main.storyboard */,
@@ -120,6 +122,7 @@
 				4C1CA4F820917873009BDDEB /* LaunchScreen.storyboard */,
 				4C1CA4FB20917873009BDDEB /* Info.plist */,
 				6214E36D2093820200C4AF7E /* Images */,
+				62026D2220A0801F00A408C3 /* makeBubble.swift */,
 			);
 			path = BubblePop;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1CA4F220917873009BDDEB /* ViewController.swift in Sources */,
+				62026D2320A0801F00A408C3 /* makeBubble.swift in Sources */,
 				62F0E83F209F16F1009B3AB2 /* ReadWriteFile.swift in Sources */,
 				62486518209B5B7300D690FE /* GameViewController.swift in Sources */,
 				4C1CA4F020917873009BDDEB /* AppDelegate.swift in Sources */,

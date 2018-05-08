@@ -32,11 +32,12 @@ class ViewController: UIViewController {
     
     @IBAction func play(_ sender: Any) {
 
-        let gameRecord = playerName.text! + timeCount.text! + bubbleCount.text!
+        let gameRecord = playerName.text! + "#" + timeCount.text! + "#" + bubbleCount.text!
         let gameFileName = "GameFile"
         let rwt = ReadWriteFile()
         rwt.writeFile(writeString: gameRecord, to: gameFileName)
         print(rwt.readFile(from: gameFileName))
+
     }
 
     
