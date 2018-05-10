@@ -62,6 +62,22 @@ class GameViewController: UIViewController {
         
     func checkBubblePosition(x: Int, y: Int) -> Bool {
         if randomY < 80 { randomY = 80 }
+        var isFree = true
+        for X in x...x+60 {
+            for Y in y...y+60 {
+                if myTable[X][Y] != 1 {
+                    isFree = false
+                 }
+             }
+        }
+        if isFree {
+            for i in x...x+60 {
+                myTable.append( [] )
+                for _ in y...y+60 {
+                    myTable[i].append( 0 )
+                  }
+                }
+        }
             return true
     }
     func displayBubbles(bubbles: [UIImageView] ){
