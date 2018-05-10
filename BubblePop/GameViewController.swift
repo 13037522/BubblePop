@@ -27,20 +27,24 @@ class GameViewController: UIViewController {
     var playerName: String?
     var settings: Settings?
     @objc var timeCounter = 60
+    var bubbleView = UIImageView()
     var score = 0
     var bubbles = [UIImageView]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initBubbleTable(x:Int(self.view.frame.width),y:Int(self.view.frame.height))
         for _ in 1...15 {
                 checkBubblePosition()
+            
                 let bubbleImage = UIImage.init(imageLiteralResourceName: randomBubbleType())
-                let bubbleView = UIImageView(image: bubbleImage)
+                bubbleView = UIImageView(image: bubbleImage)
                 bubbleView.frame = CGRect(x: randomX, y: randomY, width: 60.0, height: 60.0)
                 let tapHandler = UITapGestureRecognizer(target: self, action: #selector(bubbleTapped(_:)))
                 bubbleView.addGestureRecognizer(tapHandler)
-                bubbles.append(bubbleView)
-           
+ 
+         //   bubbleView = BubbleView(frame:CGRect(x: randomX, y: randomY, width: 60, height: 60))
+            bubbles.append(bubbleView)
         }
         displayBubbles(bubbles: bubbles)
     }
