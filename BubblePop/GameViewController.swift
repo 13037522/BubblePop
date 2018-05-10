@@ -33,22 +33,16 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         initBubbleTable(x:Int(self.view.frame.width),y:Int(self.view.frame.height))
         for _ in 1...15 {
-           randomX = CGFloat(randomSource.nextUniform()) * (self.view.frame.width-60)
-           randomY = CGFloat(randomSource.nextUniform()) * (self.view.frame.height-60)
-            if checkBubblePosition(x: Int(randomX), y: Int(randomY)){
+                checkBubblePosition()
                 let bubbleImage = UIImage.init(imageLiteralResourceName: randomBubbleType())
                 let bubbleView = UIImageView(image: bubbleImage)
                 bubbleView.frame = CGRect(x: randomX, y: randomY, width: 60.0, height: 60.0)
                 let tapHandler = UITapGestureRecognizer(target: self, action: #selector(bubbleTapped(_:)))
                 bubbleView.addGestureRecognizer(tapHandler)
                 bubbles.append(bubbleView)
-                
-            }
            
         }
         displayBubbles(bubbles: bubbles)
-        
-        
     }
     func initBubbleTable(x: Int, y: Int){
     
@@ -60,9 +54,11 @@ class GameViewController: UIViewController {
         }
     }
         
-    func checkBubblePosition(x: Int, y: Int) -> Bool {
-        if randomY < 80 { randomY = 80 }
+    func checkBubblePosition() {
+        let x = Int(CGFloat(randomSource.nextUniform()) * (self.view.frame.width-60))
+        var y = Int(CGFloat(randomSource.nextUniform()) * (self.view.frame.height-60))
         var isFree = true
+        if y < 80 { y = 80 }
         for X in x...x+60 {
             for Y in y...y+60 {
                 if myTable[X][Y] != 1 {
@@ -72,13 +68,15 @@ class GameViewController: UIViewController {
         }
         if isFree {
             for i in x...x+60 {
-                myTable.append( [] )
-                for _ in y...y+60 {
-                    myTable[i].append( 0 )
+                for ii in y...y+60{
+                    myTable[i][ii] = 0
                   }
                 }
+            randomX = CGFloat(x)
+            randomY = CGFloat(y)
         }
-            return true
+        else { checkBubblePosition()}
+        
     }
     func displayBubbles(bubbles: [UIImageView] ){
         
