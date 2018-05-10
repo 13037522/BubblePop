@@ -15,9 +15,13 @@ struct Settings {
     var score: Int
 }
 
+
+
 class GameViewController: UIViewController {
-     let randomSource: GKRandomSource = GKARC4RandomSource()
-    
+    let randomSource: GKRandomSource = GKARC4RandomSource()
+    var randomX = CGFloat()
+    var randomY = CGFloat()
+    var myTable = [[Int]]()
     @IBOutlet weak var timeLeft: UILabel!
     @IBOutlet weak var maxBubble: UILabel!
     var playerName: String?
@@ -27,30 +31,41 @@ class GameViewController: UIViewController {
     var bubbles = [UIImageView]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var x = 0
-        var y = 0
+        initBubbleTable(x:Int(self.view.frame.width),y:Int(self.view.frame.height))
         for _ in 1...15 {
-            let randomX = CGFloat(randomSource.nextUniform()) * (self.view.frame.width-60)
-            let randomY = CGFloat(randomSource.nextUniform()) * (self.view.frame.height-60)
-            x = Int(randomX)
-            y = Int(randomY)
-            checkBubblePosition(x: x , y: y)
-            let bubbleImage = UIImage.init(imageLiteralResourceName: randomBubbleType())
-            let bubbleView = UIImageView(image: bubbleImage)
-            bubbleView.frame = CGRect(x: randomX, y: randomY, width: 60.0, height: 60.0)
-            let tapHandler = UITapGestureRecognizer(target: self, action: #selector(bubbleTapped(_:)))
-            bubbleView.addGestureRecognizer(tapHandler)
-            bubbles.append(bubbleView)
+           randomX = CGFloat(randomSource.nextUniform()) * (self.view.frame.width-60)
+           randomY = CGFloat(randomSource.nextUniform()) * (self.view.frame.height-60)
+            if checkBubblePosition(x: Int(randomX), y: Int(randomY)){
+                let bubbleImage = UIImage.init(imageLiteralResourceName: randomBubbleType())
+                let bubbleView = UIImageView(image: bubbleImage)
+                bubbleView.frame = CGRect(x: randomX, y: randomY, width: 60.0, height: 60.0)
+                let tapHandler = UITapGestureRecognizer(target: self, action: #selector(bubbleTapped(_:)))
+                bubbleView.addGestureRecognizer(tapHandler)
+                bubbles.append(bubbleView)
+                
+            }
+           
         }
         displayBubbles(bubbles: bubbles)
         
         
     }
+    func initBubbleTable(x: Int, y: Int){
     
-    func checkBubblePosition(x: Int, y: Int) -> false {
+        for i in 0...x {
+            myTable.append( [] )
+            for _ in 0...y {
+                myTable[i].append( 1 )
+            }
+        }
+    }
         
+    func checkBubblePosition(x: Int, y: Int) -> Bool {
+        if randomY < 80 { randomY = 80 }
+            return true
     }
     func displayBubbles(bubbles: [UIImageView] ){
+        
         for images in bubbles{
             self.view.addSubview(images)
         }

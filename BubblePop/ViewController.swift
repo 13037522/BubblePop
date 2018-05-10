@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         let rwt = ReadWriteFile()
         rwt.writeFile(writeString: gameRecord, to: gameFileName)
         print(rwt.readFile(from: gameFileName))
-
+           
     }
 
     
